@@ -12,7 +12,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "messages", indexes = {
     @Index(name = "idx_message_chatroom_timestamp", columnList = "chat_room_id, timestamp"), // Optimized for retrieving messages by chat room and time
-    @Index(name = "idx_message_user", columnList = "user_id"), 
+    @Index(name = "idx_message_user", columnList = "sender_id"), 
     @Index(name = "idx_message_is_deleted", columnList = "is_deleted"), // Optimized for filtering deleted messages
     @Index(name = "idx_message_timestamp", columnList = "timestamp") 
 })
@@ -26,7 +26,7 @@ public class Message {
     private UUID id; // Primary key - unique identifier for each message
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "sender_id", nullable = false)
     @com.fasterxml.jackson.annotation.JsonIgnore
     private User sender; // User who sent the message (lazy loaded for performance)
 
