@@ -43,6 +43,6 @@ VALUES ('c0a80121-7b50-4b1a-8c11-92f5b8000002', 'c0a80121-7b50-4b1a-8c11-92f5b80
 ON CONFLICT (id) DO NOTHING;
 
 -- 5. Add Initial Message
-INSERT INTO messages (id, chat_room_id, user_id, username, content, message_type, timestamp, is_edited, is_deleted)
+INSERT INTO messages (id, chat_room_id, sender_id, username, content, message_type, timestamp, is_edited, is_deleted)
 VALUES ('c0a80121-7b50-4b1a-8c11-92f5b8000003', 'c0a80121-7b50-4b1a-8c11-92f5b8000000', 'ab24217d-decb-4134-98f3-90fc780246af', 'java@test.nl', 'Welcome everyone! This is the first message in our new system.', 'TEXT', CURRENT_TIMESTAMP, false, false)
 ON CONFLICT (id) DO NOTHING;
