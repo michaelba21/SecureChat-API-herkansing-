@@ -1,3 +1,4 @@
--- Add a roles column to the users table to store multiple user roles/permissions
--- This enables role-based access control (RBAC) for user authorization
-ALTER TABLE users ADD COLUMN roles VARCHAR(255)[] DEFAULT ARRAY['ROLE_USER'];
+-- This migration was previously used to add a roles column but has been superseded
+-- by proper JPA @ElementCollection mapping via the user_roles table.
+-- Roles are now correctly managed through the user_roles junction table (V1 schema)
+-- See User.java @ElementCollection for the correct mapping.

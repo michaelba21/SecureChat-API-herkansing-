@@ -49,6 +49,11 @@ public class User {
     private UserStatus status = UserStatus.OFFLINE; // Current online status: ONLINE, OFFLINE, or AWAY
 
     @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(
+        name = "user_roles",
+        joinColumns = @JoinColumn(name = "user_id")
+    )
+    @Column(name = "roles")
     @Enumerated(EnumType.STRING)
     private Set<UserRole> roles = new HashSet<>(); // User roles (EAGER: loaded with user for security checks)
 
